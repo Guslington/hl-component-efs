@@ -1,5 +1,9 @@
 maximum_availability_zones: 5
 
+# create the efs mount points
+# true | false
+create_mounts: true
+
 # encrypt: true
 # kms_key_alias: alias/efs
 #

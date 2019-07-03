@@ -1,0 +1,6 @@
+test_metadata:
+  type: config
+  name: mount_points
+  description: disable creation of the efs mount points
+
+create_mounts: false

@@ -58,7 +58,7 @@ CloudFormation do
       SecurityGroups [ Ref("SecurityGroupEFS") ]
       SubnetId FnSelect(az, Ref('SubnetIds'))
     end
-  end
+  end if create_mounts
 
   Output('FileSystem', Ref('FileSystem'))
 
