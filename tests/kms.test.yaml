@@ -1,0 +1,7 @@
+test_metadata:
+  type: config
+  name: kms
+  description: test efs encryption properties
+
+encrypt: true
+kms_key_alias: alias/efs
