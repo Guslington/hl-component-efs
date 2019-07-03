@@ -61,5 +61,6 @@ CloudFormation do
   end if create_mounts
 
   Output('FileSystem', Ref('FileSystem'))
+  Output('SecurityGroup', Ref('SecurityGroupEFS'))
 
 end
