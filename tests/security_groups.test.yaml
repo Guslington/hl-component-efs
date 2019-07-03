@@ -1,0 +1,12 @@
+test_metadata:
+  type: config
+  name: security_groups
+  description: test the security group config
+
+security_group_rules:
+  -
+    security_group_id: sg-42158fef2r4
+    desc: allow access to efs from my instance
+  -
+    ip: 10.10.0.0/16
+    desc: allow access to efs from my whole VPC
