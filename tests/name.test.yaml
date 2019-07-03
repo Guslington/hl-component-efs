@@ -1,0 +1,6 @@
+test_metadata:
+  type: config
+  name: name
+  description: test name config value
+
+name: my-efs

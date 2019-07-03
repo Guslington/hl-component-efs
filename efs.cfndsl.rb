@@ -1,6 +1,9 @@
 CloudFormation do
 
+  efs_name = defined?(name) ? name : "${EnvironmentName}-#{component_name}"
+
   tags = []
+  tags << { Key: 'Name', Value: FnSub(efs_name) }
   tags << { Key: 'Environment', Value: Ref(:EnvironmentName) }
   tags << { Key: 'EnvironmentType', Value: Ref(:EnvironmentType) }
 
@@ -35,7 +38,7 @@ CloudFormation do
         IpProtocol: -1,
       }
     ])
-    Tags tags + [{ Key: 'Name', Value: FnJoin('-', [ Ref(:EnvironmentName), component_name ])}]
+    Tags tags
   end
 
   EFS_FileSystem('FileSystem') do
@@ -46,7 +49,7 @@ CloudFormation do
     Property('ProvisionedThroughputInMibps', provisioned_throughput) if defined? provisioned_throughput
     Property('ThroughputMode', throughput_mode) if defined? throughput_mode
 
-    FileSystemTags tags + [{ Key: 'Name', Value: FnJoin('-', [ Ref(:EnvironmentName), component_name ])}]
+    FileSystemTags tags
   end
 
   maximum_availability_zones.times do |az|
